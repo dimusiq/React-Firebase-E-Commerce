@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import './App.css';
 
 import HomePage from '../src/pages/homepage/homepage.component.jsx';
-import ShopPage from '../src/pages/shop/shop.component.jsx'
+import ShopPage from '../src/pages/shop/shop.component'
 import SignInAndSignUp from './pages/sign-in-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
@@ -52,7 +52,7 @@ componentWillUnmount(){
       <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route path='/shop' component={ShopPage}/>
-        <Route exct path='/checkout' component={CheckoutPage}/>
+        <Route exact path='/checkout' component={CheckoutPage}/>
         <Route 
         exact 
         path='/signin' 
