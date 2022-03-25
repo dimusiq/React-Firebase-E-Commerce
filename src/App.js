@@ -26,20 +26,20 @@ class App extends React.Component {
   componentDidMount(){
     const {setCurrentUser}  = this.props;
     //user state
-    this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(Snapshot => {
-          setCurrentUser({
-              id: Snapshot.id,
-              ...Snapshot.data()
-          });
-        }); 
-      }
-      setCurrentUser(userAuth);
+    //     userRef.onSnapshot(Snapshot => {
+    //       setCurrentUser({
+    //           id: Snapshot.id,
+    //           ...Snapshot.data()
+    //       });
+    //     }); 
+    //   }
+    //   setCurrentUser(userAuth);
       // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
-    });
+  //   });
   }
 
 //method to close subscription
