@@ -11,11 +11,8 @@ import SignInAndSignUp from './pages/sign-in-sign-up/sign-in-and-sign-up.compone
 import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-
-import { setCurrentUser } from './redux/user/user.actions';
-import { selectCurrentUser } from './redux/user/user.selector';
-
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { checkUserSession } from './redux/user/user.actions';
 
 class App extends React.Component {
   
@@ -24,22 +21,8 @@ class App extends React.Component {
 
   //getting data from Firebase when state change  (someone signIn or signOut) and we're using method provide by firebase library
   componentDidMount(){
-    const {setCurrentUser}  = this.props;
-    //user state
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
-    //   if (userAuth) {
-    //     const userRef = await createUserProfileDocument(userAuth);
-
-    //     userRef.onSnapshot(Snapshot => {
-    //       setCurrentUser({
-    //           id: Snapshot.id,
-    //           ...Snapshot.data()
-    //       });
-    //     }); 
-    //   }
-    //   setCurrentUser(userAuth);
-      // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
-  //   });
+    const { checkUserSession } = this.props;
+    checkUserSession();
   }
 
 //method to close subscription
@@ -76,10 +59,10 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 
 });
-
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-})
+  checkUserSession: () => dispatch(checkUserSession())
+});
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps 
