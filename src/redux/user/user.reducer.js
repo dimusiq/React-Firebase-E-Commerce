@@ -27,7 +27,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 error: action.payload
             }
-        //if none of case action match then we just //return to default current state
         default:
             return state;
     }

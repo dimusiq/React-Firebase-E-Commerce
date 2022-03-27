@@ -14,7 +14,7 @@ import {
     signOutSuccess,
     signOutFailure,
     signUpSuccess,
-    signUpFailure,
+    signUpFailure
 } from './user.actions';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData){
@@ -61,7 +61,7 @@ export function* signInWithEmail({payload: {email, password}}){
 export function* signOut() {
     try{
         yield auth.signOut();
-        yield (put(signOutSuccess))
+        yield put(signOutSuccess())
     }catch(error){
         yield put(signOutFailure(error))
     }
@@ -69,8 +69,8 @@ export function* signOut() {
 
 export function* signUp({payload: {email, password, displayName}}){
     try{
-    const { user } = yield auth.createUserWithEmailAndPassword(email, password);
-    yield put(signUpSuccess({user, additionalData:{displayName}}))
+        const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+        yield put(signUpSuccess({user, additionalData:{displayName}}))
     }catch(error){
     yield put(signUpFailure(error))
     }
