@@ -12,10 +12,10 @@ import {
     CollectionPageItems
 } from './collection.styles.jsx';
 
-const CollectionPage = () => {
+const CollectionPage = ({ collection }) => {
+
     const { collectionId } = useParams();
-    const collection = useSelector(selectCollection(collectionId));
-    const { title, items } = collection;
+    const { title, items } = useSelector(selectCollection(collectionId));
 
 
     return(

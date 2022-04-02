@@ -20,7 +20,7 @@ export const CollectionPreviewStyled = styled.div`
 
     @media screen and (max-width: 800px) {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 15px;
     }
 `

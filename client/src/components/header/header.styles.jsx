@@ -22,10 +22,12 @@ export const LogoContainer = styled(Link)`
     width: 70px;
     padding: 25px;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 764px) {
         width: 50px;
         padding: 0px;
     }
+
+    
 `
 
 export const OptionsContainer = styled.div`
@@ -35,13 +37,22 @@ export const OptionsContainer = styled.div`
     align-items: center;
     justify-content: flex-end;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 764px) {
         width: 80%;
     }
+
+
 `
 
 export const OptionLink = styled(Link)`
     padding: 10px 15px;
     cursor: pointer;
+
+        @media screen and (max-width: 20em) {
+        width: 33.333%;
+        padding: 10px 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
 `
 
